@@ -1,7 +1,7 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad Ean (Bogotá - Colombia)
- * Departamento de Tecnologías de la Información y Comunicaciones
+ * Universidad Ean (BogotÃ¡ - Colombia)
+ * Departamento de TecnologÃ­as de la InformaciÃ³n y Comunicaciones
  * Licenciado bajo el esquema Academic Free License version 2.1
  * <p>
  * Proyecto Central de Pacientes.
@@ -27,12 +27,12 @@ public class CentralPacientes {
     private Paciente primero;
 
     /**
-     * Número de pacientes en la central
+     * NÃºmero de pacientes en la central
      */
     private int numPacientes;
 
     /**
-     * Vector de clínicas manejadas por la central
+     * Vector de clÃ­nicas manejadas por la central
      */
     private ArrayList<String> listaClinicas;
 
@@ -41,29 +41,29 @@ public class CentralPacientes {
     // -----------------------------------------------------------------
 
     /**
-     * Crea una nueva central sin pacientes y con una lista predefinida de clínicas
+     * Crea una nueva central sin pacientes y con una lista predefinida de clÃ­nicas
      */
     public CentralPacientes() {
         primero = null;
         numPacientes = 0;
 
         listaClinicas = new ArrayList<>();
-        listaClinicas.add("Clínica del Country");
-        listaClinicas.add("Clínica Palermo");
-        listaClinicas.add("Clínica Reina Sofía");
-        listaClinicas.add("Clínica El Bosque");
-        listaClinicas.add("Clínica San Ignacio");
+        listaClinicas.add("ClÃ­nica del Country");
+        listaClinicas.add("ClÃ­nica Palermo");
+        listaClinicas.add("ClÃ­nica Reina SofÃ­a");
+        listaClinicas.add("ClÃ­nica El Bosque");
+        listaClinicas.add("ClÃ­nica San Ignacio");
         listaClinicas.add("Otra");
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // MÃ©todos
     // -----------------------------------------------------------------
 
     /**
-     * Retorna el número de pacientes de la clínica
+     * Retorna el nÃºmero de pacientes de la clÃ­nica
      *
-     * @return El número de pacientes de la clínica
+     * @return El nÃºmero de pacientes de la clÃ­nica
      */
     public int darNumeroPacientes() {
         return numPacientes;
@@ -73,7 +73,7 @@ public class CentralPacientes {
      * Adiciona un paciente al principio de la lista
      *
      * @param pac El paciente a ser agregado al comienzo de la lista. <br>
-     *            pac!=null y no existe un paciente con código igual a pac.codigo
+     *            pac!=null y no existe un paciente con cÃ³digo igual a pac.codigo
      */
     public void agregarPacienteAlComienzo(Paciente pac) {
         if (primero == null) // Crea la cabeza si no existe
@@ -81,7 +81,7 @@ public class CentralPacientes {
             primero = pac;
         }
         else
-        // Realiza la adición antes del paciente que está al inicio de la lista
+        // Realiza la adiciÃ³n antes del paciente que estÃ¡ al inicio de la lista
         {
             pac.cambiarSiguiente(primero);
             primero = pac;
@@ -90,10 +90,10 @@ public class CentralPacientes {
     }
 
     /**
-     * Adiciona un paciente al final de la lista. Si la lista está vacía el paciente queda de primero
+     * Adiciona un paciente al final de la lista. Si la lista estÃ¡ vacÃ­a el paciente queda de primero
      *
      * @param pac El paciente a ser agregado al final la lista. <br>
-     *            pac!=null y no existe un paciente con código igual a pac.codigo
+     *            pac!=null y no existe un paciente con cÃ³digo igual a pac.codigo
      */
     public void agregarPacienteAlFinal(Paciente pac) {
         if (primero == null) // Si la cabeza no existe adiciona de primero el paciente
@@ -101,17 +101,17 @@ public class CentralPacientes {
             primero = pac;
         }
         else {
-            // Busca el último paciente de la lista
+            // Busca el Ãºltimo paciente de la lista
             Paciente p = localizarUltimo();
 
-            // Adiciona el paciente después del último paciente de la lista
+            // Adiciona el paciente despuÃ©s del Ãºltimo paciente de la lista
             p.insertarDespues(pac);
         }
         numPacientes++;
     }
 
     /**
-     * Adiciona un paciente a la lista de pacientes antes del paciente con el código especificado. <br>
+     * Adiciona un paciente a la lista de pacientes antes del paciente con el cÃ³digo especificado. <br>
      */
     public void agregarPacienteAntesDe(int cod, Paciente pac) throws NoExisteException {
         if (primero == null) {
@@ -132,12 +132,12 @@ public class CentralPacientes {
     }
 
     /**
-     * Adiciona un paciente a la lista de pacientes después del paciente con el código especificado.
+     * Adiciona un paciente a la lista de pacientes despuÃ©s del paciente con el cÃ³digo especificado.
      */
     public void agregarPacienteDespuesDe(int cod, Paciente pac) throws NoExisteException {
         Paciente anterior = localizar(cod);
 
-        if (anterior == null) // Si no existe el paciente después del que se desea realizar la adición se arroja la excepción
+        if (anterior == null) // Si no existe el paciente despuÃ©s del que se desea realizar la adiciÃ³n se arroja la excepciÃ³n
         {
             throw new NoExisteException(cod);
         }
@@ -150,7 +150,7 @@ public class CentralPacientes {
     }
 
     /**
-     * Busca el paciente con el código dado en la lista de pacientes.
+     * Busca el paciente con el cÃ³digo dado en la lista de pacientes.
      */
     public Paciente localizar(int codigo) {
         Paciente actual = primero;
@@ -161,7 +161,7 @@ public class CentralPacientes {
     }
 
     /**
-     * Busca el paciente anterior al paciente con el código especificado
+     * Busca el paciente anterior al paciente con el cÃ³digo especificado
      */
     public Paciente localizarAnterior(int cod) {
         Paciente anterior = null;
@@ -176,7 +176,7 @@ public class CentralPacientes {
     }
 
     /**
-     * Retorna el último paciente de la lista
+     * Retorna el Ãºltimo paciente de la lista
      */
     public Paciente localizarUltimo() {
         Paciente actual = primero;
@@ -190,7 +190,7 @@ public class CentralPacientes {
     }
 
     /**
-     * Elimina el paciente con el código especificado.
+     * Elimina el paciente con el cÃ³digo especificado.
      */
     public void eliminarPaciente(int cod) throws NoExisteException {
         if (primero == null) {
@@ -225,7 +225,7 @@ public class CentralPacientes {
     }
 
     /**
-     * Retorna la lista de clínicas manejadas por la central
+     * Retorna la lista de clÃ­nicas manejadas por la central
      */
     public ArrayList<String> darListaClinicas() {
         return listaClinicas;
@@ -246,25 +246,41 @@ public class CentralPacientes {
     }
 
     // -----------------------------------------------------------------
-    // Puntos de Extensión
+    // Puntos de ExtensiÃ³n
     // -----------------------------------------------------------------
 
     /**
      * Retorna la cantidad de hombres que hay en la lista
      */
     public int cantHombres() {
-        return 0;
+        int cantHom = 0;
+        Paciente Hom = primero;
+        while (Hom != null) {
+            if (Hom.darSexo() == 1){
+               cantHom++;
+            }
+            Hom = Hom.darSiguiente();
+        }
+        return cantHom;
     }
 
     /**
      * Retorna la cantidad de mujeres que hay en la lista
      */
     public int cantMujeres() {
-        return 0;
+         int cantMuj = 0;
+        Paciente Muj = primero;
+        while (Muj != null){
+            if (Muj.darSexo() == 2){
+                cantMuj++;
+            }
+            Muj = Muj.darSiguiente();
+        }
+        return cantMuj;
     }
 
     /**
-     * Método para la extensión3
+     * MÃ©todo para la extensiÃ³n3
      *
      * @return respuesta3
      */
@@ -273,7 +289,7 @@ public class CentralPacientes {
     }
 
     /**
-     * Método para la extensión4
+     * MÃ©todo para la extensiÃ³n4
      *
      * @return respuesta4
      */
@@ -282,7 +298,7 @@ public class CentralPacientes {
     }
 
     /**
-     * Método para la extensión2
+     * MÃ©todo para la extensiÃ³n2
      *
      * @return respuesta5
      */
